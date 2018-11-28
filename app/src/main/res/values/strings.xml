@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">KodeProjectOne</string>
+    <string name="first_operand_hint">1st operand</string>
+    <string name="second_operand_hint">2nd operand</string>
+    <string name="add_label">+</string>
+    <string name="subtract_label">-</string>
+    <string name="multiply_label">*</string>
+    <string name="divide_label">/</string>
+    <string name="result_text_intro">Enter operands above and use operations below to see result here</string>
+</resources>
