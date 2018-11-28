@@ -1,6 +1,7 @@
 package com.daniily000.edu.kodeprojectone
 
 import android.os.Bundle
+import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
@@ -79,33 +80,37 @@ class MainActivity : AppCompatActivity() {
                                     add -> (op1.double() + op2.double()).fmt()
                                     sub -> (op1.double() - op2.double()).fmt()
                                     mul -> (op1.double() * op2.double()).fmt()
-                                    div -> if (op2.double() == BigDecimal.ZERO) "Not a number" else (op1.double() / op2.double()).fmt()
+                                    div -> if (op2.double() == BigDecimal.ZERO) "Not a number" else (op1.double().divide(op2.double())).fmt()
                                     else -> ""
                                 }
 
                     } catch (nfe: NumberFormatException) {
                         nfe.printStackTrace()
                     }
+                    showResultText(result)
                 }
 
                 OPERANDS_FIRST_FAILED -> {
                     result = "First operand is incorrect. Please check it for misspelling"
+                    Snackbar.make(v, result, Snackbar.LENGTH_LONG).show()
                 }
 
                 OPERANDS_SECOND_FAILED -> {
                     result = "First operand is incorrect. Please check it for misspelling"
+                    Snackbar.make(v, result, Snackbar.LENGTH_LONG).show()
                 }
 
                 OPERANDS_BOTH_FAILED -> {
                     result = "Both operands have failed to be parsed! Please check it for misspelling"
+                    Snackbar.make(v, result, Snackbar.LENGTH_LONG).show()
                 }
 
                 else -> {
-                    Log.wtf(TAG, "Else in onCalculate - THIS SHOULD NOT HAPPEN")
+                    Log.wtf(TAG, "Else in onCalculate - THIS SHOULD NEVER HAPPEN")
                 }
             }
 
-            showResultText(result)
+
 
         } else {
             Log.e(TAG, "Unexpected call of onCalculate with wrong parameter - aborting")
