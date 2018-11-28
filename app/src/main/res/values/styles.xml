@@ -14,6 +14,7 @@
         <item name="android:scrollHorizontally">true</item>
         <item name="android:textSize">34sp</item>
         <item name="android:fontFamily">sans-serif-condensed</item>
+        <item name="android:maxLength">9</item>
     </style>
 
     <style name="OperationButtonsStyle">
